@@ -12,6 +12,7 @@
 		D934953528ACEA48009D4FC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D934953428ACEA48009D4FC1 /* ViewController.swift */; };
 		D934953A28ACEA49009D4FC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D934953928ACEA49009D4FC1 /* Assets.xcassets */; };
 		D934953D28ACEA49009D4FC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D934953B28ACEA49009D4FC1 /* LaunchScreen.storyboard */; };
+		D962FCBC28AD0ACE003F71B6 /* UIVIew + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962FCBB28AD0ACE003F71B6 /* UIVIew + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D934953928ACEA49009D4FC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D934953C28ACEA49009D4FC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D934953E28ACEA49009D4FC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D962FCBB28AD0ACE003F71B6 /* UIVIew + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		D934952F28ACEA48009D4FC1 /* authentication-screen */ = {
 			isa = PBXGroup;
 			children = (
+				D962FCBA28AD0AB1003F71B6 /* Extension */,
 				D934954428ACEA6D009D4FC1 /* Resources */,
 				D934954628ACEAA6009D4FC1 /* Sources */,
 			);
@@ -110,6 +113,14 @@
 				D934953428ACEA48009D4FC1 /* ViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D962FCBA28AD0AB1003F71B6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D962FCBB28AD0ACE003F71B6 /* UIVIew + Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +195,7 @@
 			files = (
 				D934953528ACEA48009D4FC1 /* ViewController.swift in Sources */,
 				D934953128ACEA48009D4FC1 /* AppDelegate.swift in Sources */,
+				D962FCBC28AD0ACE003F71B6 /* UIVIew + Extension.swift in Sources */,
 				D934953328ACEA48009D4FC1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

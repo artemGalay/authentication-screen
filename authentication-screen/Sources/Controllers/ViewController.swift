@@ -16,153 +16,36 @@ class ViewController: UIViewController {
         return imageViewBackground
     }()
 
-    private let loginLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Login"
-        label.textColor = .white
-        label.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let loginLabel = UILabel(text: "Login", font: UIFont.boldSystemFont(ofSize: 40))
+    private let orConnectWithLabel = UILabel(text: "or connect with", font: UIFont.boldSystemFont(ofSize: 18))
+    private let dontHaveAccountLabel = UILabel(text: "Dont have account?", font: UIFont.boldSystemFont(ofSize: 18))
 
-    private let loginTextField: UITextField = {
-        let textField = UITextField()
-        textField.textAlignment = .center
-        textField.text = ""
-        textField.placeholder = "keanureeves01"
-        textField.backgroundColor = .white
-        textField.layer.cornerRadius = 25
-        textField.translatesAutoresizingMaskIntoConstraints = false
+    private let loginTextField = UITextField(placeholder: "keanureeves01", isSecureTextEntry: false)
+    private let imageLeftLogin = UIImage(named: "person")
+    private let imageRightLogin = UIImage(named: "checkmarkCircle")
 
-        let imageLeft = UIImage(named: "person")
-        textField.setLeftIcon(imageLeft!)
+    private let passwordTextField = UITextField(placeholder: "Password", isSecureTextEntry: true)
+    private let imagePassword = UIImage(named: "lock")
 
-        let imageRight = UIImage(named: "checkmarkCircle")
-        textField.setRightIcon(imageRight!)
+    private let loginButton = UIButton(backgroundColor: .systemPurple,
+                                       titleLabel: .monospacedDigitSystemFont(ofSize: 18, weight: .bold))
 
-        return textField
-    }()
+    private let forgotButton = UIButton(backgroundColor: .clear,
+                                        titleLabel: .boldSystemFont(ofSize: 18))
 
-    private let passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.textAlignment = .center
-        textField.text = ""
-        textField.placeholder = "Password"
-        textField.backgroundColor = .white
-        textField.layer.cornerRadius = 25
-        textField.isSecureTextEntry = true
-        textField.translatesAutoresizingMaskIntoConstraints = false
+    private let facebookButton = UIButton(backgroundColor: .systemBlue,
+                                          titleLabel: .monospacedDigitSystemFont(ofSize: 15, weight: .bold))
 
-        let image = UIImage(named: "lock")
-        textField.setLeftIcon(image!)
+    private let twitterButton = UIButton(backgroundColor: .blue,
+                                         titleLabel: .monospacedDigitSystemFont(ofSize: 15, weight: .bold))
 
-        return textField
-    }()
+    private let singUpButton = UIButton(backgroundColor: .clear, titleLabel: .boldSystemFont(ofSize: 18))
 
-    private let loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .systemPurple
-        button.layer.cornerRadius = 25
-        button.setTitle("Login", for: .normal)
-        button.titleLabel?.font = .monospacedDigitSystemFont(ofSize: 18, weight: .bold)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    private let lineLeftView = UIView(layer: 5)
+    private let lineRightView = UIView(layer: 5)
 
-    private let forgotButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Forgot your password?", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    private let lineLeftView: UIView = {
-        let view = UIView()
-        view.layer.borderWidth = 5
-        view.layer.borderColor = UIColor.darkGray.cgColor
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    private let orConnectWithLabel: UILabel = {
-        let label = UILabel()
-        label.text = "or connect with"
-        label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let lineRightView: UIView = {
-        let view = UIView()
-        view.layer.borderWidth = 5
-        view.layer.borderColor = UIColor.darkGray.cgColor
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    private let facebookButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 25
-        button.setTitle("Facebook", for: .normal)
-        button.titleLabel?.font = .monospacedDigitSystemFont(ofSize: 15, weight: .bold)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    private let twitterButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .blue
-        button.layer.cornerRadius = 25
-        button.setTitle("Twitter", for: .normal)
-        button.titleLabel?.font = .monospacedDigitSystemFont(ofSize: 15, weight: .bold)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    private let facebookImage: UIImageView = {
-        let image = UIImage(named: "facebook")
-        let imageView = UIImageView(image: image)
-        imageView.layer.cornerRadius = 15
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
-    private let twitterImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "twitter")
-        imageView.layer.cornerRadius = 15
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
-    private let dontHaveAccountLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Dont have account?"
-        label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let singUpButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Sing up", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
-        button.setTitleColor(UIColor.blue, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-
+    private let facebookImage = UIImageView(image: UIImage(named: "facebook"))
+    private let twitterImage = UIImageView(image: UIImage(named: "twitter"))
 
 
 
@@ -172,15 +55,39 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupHierarchy()
         setConstraints()
+        setupButtons()
     }
 
 //MARK: - Setup
 
+    private func setupButtons() {
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.setTitleColor(UIColor.white, for: .normal)
+
+        forgotButton.setTitle("Forgot your password?", for: .normal)
+        forgotButton.setTitleColor(UIColor.white, for: .normal)
+
+        facebookButton.setTitle("Facebook", for: .normal)
+        facebookButton.setTitleColor(UIColor.white, for: .normal)
+
+        twitterButton.setTitle("Twitter", for: .normal)
+        twitterButton.setTitleColor(UIColor.white, for: .normal)
+
+        singUpButton.setTitle("Sing up", for: .normal)
+        singUpButton.setTitleColor(UIColor.blue, for: .normal)
+    }
+
     private func setupHierarchy() {
         view.addSubview(backgroundView)
         view.addSubview(loginLabel)
+
         view.addSubview(loginTextField)
+        loginTextField.setLeftIcon(imageLeftLogin!)
+        loginTextField.setRightIcon(imageRightLogin!)
+
         view.addSubview(passwordTextField)
+        passwordTextField.setLeftIcon(imagePassword!)
+
         view.addSubview(loginButton)
         view.addSubview(forgotButton)
         view.addSubview(lineLeftView)
@@ -195,7 +102,6 @@ class ViewController: UIViewController {
     }
 
     private func setConstraints() {
-
 
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
@@ -291,12 +197,5 @@ class ViewController: UIViewController {
             singUpButton.centerYAnchor.constraint(equalTo: dontHaveAccountLabel.centerYAnchor),
             singUpButton.leadingAnchor.constraint(equalTo: dontHaveAccountLabel.trailingAnchor, constant: 20)
         ])
-
-
-
-
 }
 }
-
-
-

@@ -8,12 +8,11 @@
 import UIKit
 
 extension UIView {
-
     convenience init(layer: CGFloat) {
         self.init()
         self.layer.borderWidth = layer
         self.layer.borderColor = UIColor.darkGray.cgColor
         translatesAutoresizingMaskIntoConstraints = false
-}
+    }
 }
 

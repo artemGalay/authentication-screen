@@ -17,6 +17,7 @@
 		D9842CAC28AD9EBA0020FE12 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9842CAB28AD9EBA0020FE12 /* UIButton + Extensions.swift */; };
 		D9842CAE28ADA9120020FE12 /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9842CAD28ADA9120020FE12 /* UIImageView + Extensions.swift */; };
 		D9842CB028ADBE960020FE12 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9842CAF28ADBE960020FE12 /* UIView + Extensions.swift */; };
+		D9842CB328AE0A620020FE12 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D9842CB228AE0A620020FE12 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9842CB328AE0A620020FE12 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +153,9 @@
 			dependencies = (
 			);
 			name = "authentication-screen";
+			packageProductDependencies = (
+				D9842CB228AE0A620020FE12 /* SnapKit */,
+			);
 			productName = "authentication-screen";
 			productReference = D934952D28ACEA48009D4FC1 /* authentication-screen.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +184,9 @@
 				Base,
 			);
 			mainGroup = D934952428ACEA48009D4FC1;
+			packageReferences = (
+				D9842CB128AE0A620020FE12 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = D934952E28ACEA48009D4FC1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -420,6 +428,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D9842CB128AE0A620020FE12 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D9842CB228AE0A620020FE12 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9842CB128AE0A620020FE12 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D934952528ACEA48009D4FC1 /* Project object */;
 }

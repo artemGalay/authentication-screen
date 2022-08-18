@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
@@ -47,15 +48,13 @@ class ViewController: UIViewController {
     private let facebookImage = UIImageView(image: UIImage(named: "facebook"))
     private let twitterImage = UIImageView(image: UIImage(named: "twitter"))
 
-
-
 //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupButtons()
         setupHierarchy()
         setConstraints()
-        setupButtons()
     }
 
 //MARK: - Setup
@@ -80,8 +79,8 @@ class ViewController: UIViewController {
     private func setupHierarchy() {
         view.addSubview(backgroundView)
         view.addSubview(loginLabel)
-
         view.addSubview(loginTextField)
+        
         loginTextField.setLeftIcon(imageLeftLogin!)
         loginTextField.setRightIcon(imageRightLogin!)
 
@@ -102,100 +101,94 @@ class ViewController: UIViewController {
     }
 
     private func setConstraints() {
+        backgroundView.snp.makeConstraints { make in
+            make.top.bottom.left.right.equalToSuperview()
+        }
 
-        NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
-        ])
+        loginLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(60)
+            make.centerX.equalToSuperview()
+        }
 
-        NSLayoutConstraint.activate([
-            loginLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
-            loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+        loginTextField.snp.makeConstraints { make in
+            make.top.equalTo(loginLabel.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(320)
+            make.height.equalTo(50)
+        }
 
-        NSLayoutConstraint.activate([
-            loginTextField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 30),
-            loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginTextField.widthAnchor.constraint(equalToConstant: 320),
-            loginTextField.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        passwordTextField.snp.makeConstraints { make in
+            make.top.equalTo(loginTextField.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(320)
+            make.height.equalTo(50)
+        }
 
-        NSLayoutConstraint.activate([
-            passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: 20),
-            passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            passwordTextField.widthAnchor.constraint(equalToConstant: 320),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        loginButton.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextField.snp.bottom).offset(60)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(320)
+            make.height.equalTo(50)
+        }
 
-        NSLayoutConstraint.activate([
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 60),
-            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginButton.widthAnchor.constraint(equalToConstant: 320),
-            loginButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        forgotButton.snp.makeConstraints { make in
+            make.top.equalTo(loginButton.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+        }
 
-        NSLayoutConstraint.activate([
-            forgotButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
-            forgotButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+        lineLeftView.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-220)
+            make.leading.equalToSuperview().offset(40)
+            make.width.equalTo(100)
+            make.height.equalTo(1)
+        }
 
-        NSLayoutConstraint.activate([
-            lineLeftView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -220),
-            lineLeftView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            lineLeftView.widthAnchor.constraint(equalToConstant: 100),
-            lineLeftView.heightAnchor.constraint(equalToConstant: 1)
-        ])
+        orConnectWithLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(lineLeftView)
+            make.centerX.equalTo(view.snp.centerX)
+        }
 
-        NSLayoutConstraint.activate([
-            orConnectWithLabel.centerYAnchor.constraint(equalTo: lineLeftView.centerYAnchor),
-            orConnectWithLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+        lineRightView.snp.makeConstraints { make in
+            make.centerY.equalTo(lineLeftView)
+            make.trailing.equalToSuperview().offset(-40)
+            make.width.equalTo(100)
+            make.height.equalTo(1)
+        }
 
-        NSLayoutConstraint.activate([
-            lineRightView.centerYAnchor.constraint(equalTo: lineLeftView.centerYAnchor),
-            lineRightView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            lineRightView.widthAnchor.constraint(equalToConstant: 100),
-            lineRightView.heightAnchor.constraint(equalToConstant: 1)
-        ])
+        facebookButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-130)
+            make.leading.equalToSuperview().offset(20)
+            make.width.equalTo(180)
+            make.height.equalTo(50)
+        }
 
-        NSLayoutConstraint.activate([
-            facebookButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -130),
-            facebookButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            facebookButton.widthAnchor.constraint(equalToConstant: 180),
-            facebookButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        twitterButton.snp.makeConstraints { make in
+            make.centerY.equalTo(facebookButton)
+            make.trailing.equalToSuperview().offset(-20)
+            make.width.equalTo(180)
+            make.height.equalTo(50)
+        }
 
-        NSLayoutConstraint.activate([
-            twitterButton.centerYAnchor.constraint(equalTo: facebookButton.centerYAnchor),
-            twitterButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            twitterButton.widthAnchor.constraint(equalToConstant: 180),
-            twitterButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        facebookImage.snp.makeConstraints { make in
+            make.centerY.equalTo(facebookButton)
+            make.leading.equalTo(facebookButton).offset(10)
+            make.width.height.equalTo(30)
+        }
 
-        NSLayoutConstraint.activate([
-            facebookImage.centerYAnchor.constraint(equalTo: facebookButton.centerYAnchor),
-            facebookImage.leadingAnchor.constraint(equalTo: facebookButton.leadingAnchor, constant: 10),
-            facebookImage.widthAnchor.constraint(equalToConstant: 30),
-            facebookImage.heightAnchor.constraint(equalToConstant: 30)
-        ])
+        twitterImage.snp.makeConstraints { make in
+            make.centerY.equalTo(twitterButton)
+            make.leading.equalTo(twitterButton).offset(10)
+            make.width.height.equalTo(30)
+        }
 
-        NSLayoutConstraint.activate([
-            twitterImage.centerYAnchor.constraint(equalTo: twitterButton.centerYAnchor),
-            twitterImage.leadingAnchor.constraint(equalTo: twitterButton.leadingAnchor, constant: 10),
-            twitterImage.widthAnchor.constraint(equalToConstant: 30),
-            twitterImage.heightAnchor.constraint(equalToConstant: 30)
-        ])
+        dontHaveAccountLabel.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-70)
+            make.leading.equalToSuperview().offset(80)
+        }
 
-        NSLayoutConstraint.activate([
-            dontHaveAccountLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70),
-            dontHaveAccountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80)
-        ])
-
-        NSLayoutConstraint.activate([
-            singUpButton.centerYAnchor.constraint(equalTo: dontHaveAccountLabel.centerYAnchor),
-            singUpButton.leadingAnchor.constraint(equalTo: dontHaveAccountLabel.trailingAnchor, constant: 20)
-        ])
-}
+        singUpButton.snp.makeConstraints { make in
+            make.centerY.equalTo(dontHaveAccountLabel)
+            make.leading.equalTo(dontHaveAccountLabel.snp.trailing).offset(20)
+        }
+    }
 }

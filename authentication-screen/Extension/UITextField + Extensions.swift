@@ -8,7 +8,6 @@
 import UIKit
 
 extension UITextField {
-
     convenience init(placeholder: String, isSecureTextEntry: Bool) {
         self.init()
         self.placeholder = placeholder
@@ -36,5 +35,5 @@ extension UITextField {
         iconContainerView.addSubview(iconView)
         rightView = iconContainerView
         rightViewMode = .always
-}
+    }
 }
